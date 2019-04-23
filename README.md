@@ -60,8 +60,10 @@ https://cacoo.com/diagrams/Nq4RFiOtbfdgIg1a/6E4E9
 ---
 ## 使用予定Gem
 ---
-- device
+- devise
 - carrierwave
 - mini_magick
 - chartkick
 - groupdate
+
+- コメント機能
