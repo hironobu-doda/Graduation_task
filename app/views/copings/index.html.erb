@@ -1,0 +1,11 @@
+<h1>コーピングレパートリー</h1>
+
+<div class= "container">
+  <div id="comments_area">
+    <%= render partial: 'copings/list', locals: { copings: @copings } %>
+  </div>
+  
+  <%= render partial: 'copings/form', locals: { coping: @coping } %>
+</div>
+
+<%= link_to 'マイページ', user_path(current_user.id) %>

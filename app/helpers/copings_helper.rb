@@ -1,0 +1,2 @@
+module CopingsHelper
+end
