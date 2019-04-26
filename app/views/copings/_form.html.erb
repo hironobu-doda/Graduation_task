@@ -1,41 +1,13 @@
-<!-- この記述がblogのshow画面に表示されるコメント入力欄になります -->
-
-<% comment.date = creation_date.date %>
-
-<%= form_with(model: [creation_date, comment]) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: coping) do |form| %>
 
   <div class="field">
-    <%= form.label :before_content %>
-    <%= form.text_field :before_content %>
+    <%= form.label :coping_repertory %>
+    <%= form.text_area :coping_repertory, id: :coping_coping_repertory %>
   </div>
 
   <div class="field">
-    <%= form.label :before_point %>
-    <%= form.number_field :before_point %>
-  </div>
-
-  <div class="field">
-    <%= form.label :after_content %>
-    <%= form.text_field :after_content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :after_point %>
-    <%= form.number_field :after_point %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :date %>
+    <%= form.label :soon %>
+    <%= form.check_box :soon, id: :coping_soon %>
   </div>
 
   <div class="actions">

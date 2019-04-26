@@ -20,10 +20,14 @@
 ], stacked: false, colors: ["#FFFF33", "#99FFFF"], xtitle: "日付け (日)", ytitle: "ストレス度 (%)", discrete: true %>
 
 <h3>最新のストレス度</h3>
-<% if (@chart_data_1.values.last - @chart_data_2.values.last) >= 0 %>
-  <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last - @chart_data_2.values.last %>%減少
+<% if @chart_data_1.present? || @chart_data_2.present? %>
+  <% if (@chart_data_1.values.last - @chart_data_2.values.last) >= 0 %>
+    <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last - @chart_data_2.values.last %>%減少
+  <% else %>
+    <%= @chart_data_1.keys.last %> : <%= @chart_data_2.values.last - @chart_data_1.values.last %>%増加
+  <% end %>
 <% else %>
-  <%= @chart_data_1.keys.last %> : <%= @chart_data_2.values.last - @chart_data_1.values.last %>%増加
+  <p>まだ登録されていません</p>
 <% end %>
 
 <!-- <Hr>
