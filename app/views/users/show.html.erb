@@ -1,10 +1,50 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
-
-<%= link_to '編集', edit_user_registration_path(@user) %>
 
 <% if @user.image.url %>
   <img src=<%= @user.image %> class = "icon_image">
 <% end %>
 
+<%# if @user.image.url %>
+  <!-- <p class = "icon_image">
+    <strong>Image:</strong>
+    <%#= image_tag @user.image.url %>
+  </p> -->
+<%# end %>
+
+<%= area_chart [
+  { name: "ストレス軽減前", data: @chart_data_1 },
+  { name: "ストレス軽減後", data: @chart_data_2 }
+], stacked: false, colors: ["#FFFF33", "#99FFFF"], xtitle: "日付け (日)", ytitle: "ストレス度 (%)", discrete: true %>
+
+<h3>最新のストレス度</h3>
+<% if (@chart_data_1.values.last - @chart_data_2.values.last) >= 0 %>
+  <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last - @chart_data_2.values.last %>%減少
+<% else %>
+  <%= @chart_data_1.keys.last %> : <%= @chart_data_2.values.last - @chart_data_1.values.last %>%増加
+<% end %>
+
+<!-- <Hr>
+
+<%# <% @random_my_true_coping.each do |coping| %> %>
+  <h3>今できるコーピング</h3>
+  <%# <p><%= coping.coping_repertory %></p> %>
+<%# <% end %> -->
+
+<Hr>
+
+  <div id="comments_area">
+    <%= render partial: 'users/coping', locals: { random_my_true_coping: @random_my_true_coping } %>
+  </div>
+
+  <%= render partial: 'users/link', locals: { user: @user } %>
+
+<Hr>
+
+<%= link_to 'ストレス認識変更画面へ', creation_dates_path %>
+<%= link_to 'コーピングレパートリー集へ', copings_path %>
 <%= link_to '使い方', users_path %>
+
+<%= link_to '編集', edit_user_registration_path(@user) %>
