@@ -1,0 +1,6 @@
+<% random_my_true_coping.each do |coping| %>
+    <% if coping.id.present? %>
+        <h3>今できるコーピング</h3>
+        <p><%= coping.coping_repertory %></p>
+    <% end %>
+<% end %>
