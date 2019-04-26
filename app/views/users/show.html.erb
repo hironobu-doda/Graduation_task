@@ -1,18 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
+<% if current_user.try(:admin?) %>
+  <p>管理者 : <%= @user.name %>さんのページ</p>
+<% else %>
+  <p>ユーザー : <%= @user.name %>さんのページ</p>
+<% end %>
 
 <% if @user.image.url %>
   <img src=<%= @user.image %> class = "icon_image">
 <% end %>
-
-<%# if @user.image.url %>
-  <!-- <p class = "icon_image">
-    <strong>Image:</strong>
-    <%#= image_tag @user.image.url %>
-  </p> -->
-<%# end %>
 
 <%= area_chart [
   { name: "ストレス軽減前", data: @chart_data_1 },
@@ -29,13 +23,6 @@
 <% else %>
   <p>まだ登録されていません</p>
 <% end %>
-
-<!-- <Hr>
-
-<%# <% @random_my_true_coping.each do |coping| %> %>
-  <h3>今できるコーピング</h3>
-  <%# <p><%= coping.coping_repertory %></p> %>
-<%# <% end %> -->
 
 <Hr>
 
