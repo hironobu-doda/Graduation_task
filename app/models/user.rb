@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :creation_dates
 
   has_many :comments
+
+  has_many :copings
 end
