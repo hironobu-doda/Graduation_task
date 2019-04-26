@@ -1,2 +1,26 @@
-<h1>CreationDates#index</h1>
-<p>Find me in app/views/creation_dates/index.html.erb</p>
+<h1>日付け</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>バックナンバー</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @creation_dates.each do |creation_date| %>
+      <tr>
+        <td><%= creation_date.date %></td>
+        <td><%= link_to 'ストレス認識変更の確認', creation_date %></td>
+        <td><%= link_to '日付け変更', edit_creation_date_path(creation_date) %></td>
+        <td><%= link_to '削除', creation_date, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'マイページ', user_path(current_user.id) %>
+<%= link_to '新規作成', new_creation_date_path %>
