@@ -1,0 +1,22 @@
+<%= form_with(model: creation_date, local: true) do |form| %>
+  <% if creation_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(creation_date.errors.count, "error") %> prohibited this creation_date from being saved:</h2>
+
+      <ul>
+      <% creation_date.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :creation_date_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
