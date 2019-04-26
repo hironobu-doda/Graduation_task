@@ -1,0 +1,17 @@
+<div class= "container">
+
+  <div class="creation_date-text">
+    <strong>日付け:</strong>
+    <%= @creation_date.date %>
+  </div>
+
+  <p>登録内容</p>
+
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, creation_date: @creation_date } %>
+  </div>
+
+  <%= render partial: 'comments/form', locals: { comment: @comment, creation_date: @creation_date } %>
+
+  <%= link_to '戻る', creation_dates_path %>
+</div>
