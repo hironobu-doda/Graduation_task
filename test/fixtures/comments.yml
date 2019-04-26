@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creation_date: one
+  before_content: MyText
+  after_content: MyText
+  before_point: 1
+  after_point: 1
+  date: 2019-04-26
+
+two:
+  creation_date: two
+  before_content: MyText
+  after_content: MyText
+  before_point: 1
+  after_point: 1
+  date: 2019-04-26

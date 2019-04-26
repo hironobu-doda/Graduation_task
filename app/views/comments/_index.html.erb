@@ -1,0 +1,15 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p><%= comment.before_content %></p>
+        <p><%= comment.before_point %></p>
+        <p><%= comment.after_content %></p>
+        <p><%= comment.after_point %></p>
+        <p><%= link_to '編集', edit_comment_path(comment.id) %></p>
+        <p><%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: '削除しますか？' } %></p>
+      </li>
+      <Hr>
+    <% end %>
+  <% end %>
+</ul>

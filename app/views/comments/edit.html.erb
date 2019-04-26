@@ -1,0 +1,38 @@
+<h1>編集</h1>
+
+<%= form_with(model: @comment) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :before_content %>
+    <%= form.text_field :before_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :before_point %>
+    <%= form.number_field :before_point %>
+  </div>
+
+  <div class="field">
+    <%= form.label :after_content %>
+    <%= form.text_field :after_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :after_point %>
+    <%= form.number_field :after_point %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

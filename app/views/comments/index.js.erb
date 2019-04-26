@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.creation_date.comments, creation_date: @comment.creation_date }) %>")
+$("textarea").val('')
