@@ -16,9 +16,9 @@
 <h3>最新のストレス度</h3>
 <% if @chart_data_1.present? || @chart_data_2.present? %>
   <% if (@chart_data_1.values.last - @chart_data_2.values.last) >= 0 %>
-    <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last - @chart_data_2.values.last %>%減少
+    <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last.floor - @chart_data_2.values.last.floor %>%減少
   <% else %>
-    <%= @chart_data_1.keys.last %> : <%= @chart_data_2.values.last - @chart_data_1.values.last %>%増加
+    <%= @chart_data_1.keys.last %> : <%= @chart_data_2.values.last.floor - @chart_data_1.values.last.floor %>%増加
   <% end %>
 <% else %>
   <p>まだ登録されていません</p>

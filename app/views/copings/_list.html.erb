@@ -4,10 +4,11 @@
       <% if coping.id.present? %>
         <li>
           <p><%= coping.coping_repertory %></p>
-          <p><%= coping.soon %></p>
+          <p><%= coping.soon ? 'すぐできる' : 'すぐできない' %></p>
           <p><%= link_to '削除', coping_path(coping.id), method: :delete, remote: true, data: { confirm: '削除しますか？' } %></p>
         </li>
       <% end %>
+      <Hr>
     <% end %>
   <% end %>
 </ul>

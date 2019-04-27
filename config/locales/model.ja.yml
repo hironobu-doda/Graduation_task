@@ -21,3 +21,15 @@ ja:
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
         image: "画像"
+      creation_date:
+        date: "日付け"
+      comment:
+        before_content: "ストレスの内容"
+        before_point: "現在のストレス度(%)"
+        after_content: "ストレスの認識を改善した内容"
+        after_point: "改善後のストレス度(%)"
+      coping:
+        coping_repertory: "コーピングレパートリー"
+        soon: "すぐできるか"
+        true: "はい"
+        false: "いいえ"
