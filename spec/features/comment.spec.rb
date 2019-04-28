@@ -23,7 +23,7 @@ RSpec.feature "コメント投稿機能", type: :feature do
       click_on '登録する'
 
       click_on 'ストレス認識変更画面へ'
-      click_on '新規作成'
+      click_on 'ストレス認識改善を行う'
 
       # 日付け登録
       sleep 0.5

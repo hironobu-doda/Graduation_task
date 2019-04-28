@@ -23,7 +23,7 @@ class CopingsController < ApplicationController
     @coping = Coping.find(params[:id])
     @coping.destroy
     respond_to do |format|
-      format.html { redirect_to copings_url, notice: 'コーピングを削除しました' }
+      format.html { redirect_to copings_url }
     end
   end
 

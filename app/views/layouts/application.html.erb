@@ -10,19 +10,43 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+    <div class="container text-left">
+      <% if user_signed_in? %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to 'アカウント編集', edit_user_registration_path(@user) %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path %> |
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </div>
 
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+    <div class="jumbotron color">
+      <div class="container text-center">
+        <h1>おちつき</h1>
+
+      </div>
+      <div class="container text-center">
+        <% if user_signed_in? %>
+          <div class="row">
+            <li class="col-md-3"><%= link_to '「おちつき」の使い方', users_path %></li>
+            <li class="col-md-3"><%= link_to 'ストレス認識変更画面へ', creation_dates_path %></li>
+            <li class="col-md-3"><%= link_to 'コーピングレパートリー集へ', copings_path %></li>
+            <li class="col-md-3"><%= link_to 'マイページ', user_path(current_user.id) %></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+    <div class="container text-center">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>

@@ -2,16 +2,21 @@
   <%= h(flash[:success]) %>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
-        <% if comment.user.image.url %>
-          <img src=<%= comment.user.image %> class = "icon_image">
-        <% end %>
-        <p><%= comment.before_content %></p>
-        <p><%= comment.before_point %></p>
-        <p><%= comment.after_content %></p>
-        <p><%= comment.after_point %></p>
-        <p><%= link_to '編集', edit_comment_path(comment.id) %></p>
-        <p><%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: '削除しますか？' } %></p>
+      <li class="row">
+        <div class="col-sm-2">
+          <% if comment.user.image.url %>
+            <img src=<%= comment.user.image %> class = "icon_image">
+          <% end %>
+        </div>
+        <div class="col-sm-10">
+            <h4>改善前：<%= comment.before_point %>%</h4>
+            <p><%= comment.before_content %></p>
+            <h4>改善後：<%= comment.after_point %>%</h4>
+            <p><%= comment.after_content %></p>
+            <%= link_to '編集', edit_comment_path(comment.id) %> |
+            <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: '削除しますか？' } %>
+        </div>
+
       </li>
       <Hr>
     <% end %>

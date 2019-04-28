@@ -10,3 +10,31 @@
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
 }
+
+.jumbotron { background:url('wheat-3506758_1920.jpg') center no-repeat; background-size: cover;}
+.jumbotron h1{color: white;}
+ .jumbotron p{color: white;}
+
+/*ジャンボトロン-赤の指定*/
+ .color h1{color: #0000cd;}
+ .color p{color: #0000cd;}
+
+ ul {
+   margin: 0 auto;
+   padding: 10px;
+   list-style: none;
+ }
+
+ .row {
+   word-wrap: break-word;
+ }
+
+ li {
+   margin: 0 auto;
+   padding: 10px;
+   list-style: none;
+ }
+
+ .menu {
+   color: black;
+ }
