@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 RSpec.feature "コメント投稿機能", type: :feature do
-    scenario "サインインのテスト" do
+    scenario "サインインのテスト(サインインしないと全ての機能が使えないため)" do
       visit new_user_registration_path
       fill_in '名前', with: 'shibao'
       fill_in 'メールアドレス', with: 'shibao@example.com'
@@ -13,7 +13,7 @@ RSpec.feature "コメント投稿機能", type: :feature do
       expect(page).to have_content 'shibaoさんのページ'
     end
 
-    scenario "ストレス内容とステレス度が登録できるかのテスト", js: true do
+    scenario "ストレス内容とステレス度が登録し、Ajaxで表示できるかテストした", js: true do
       # サインイン
       visit new_user_registration_path
       fill_in '名前', with: 'shibao'
@@ -36,14 +36,14 @@ RSpec.feature "コメント投稿機能", type: :feature do
       fill_in '改善後のストレス度(%)', with: '30'
       click_on '登録する'
       find_link('削除').visible?
-      
+
       expect(page).to have_content 'テスト1-1'
       expect(page).to have_content '80'
       expect(page).to have_content 'テスト1-2'
       expect(page).to have_content '30'
     end
 
-    scenario "コーピングが登録できるかのテスト", js: true do
+    scenario "コーピングが登録し、Ajaxで表示できるかテストした", js: true do
       # サインイン
       visit new_user_registration_path
       fill_in '名前', with: 'shibao'
