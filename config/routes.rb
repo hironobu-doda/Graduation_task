@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :copings
+  resources :copings, only: [:index, :create, :destroy]
 
   root 'users#index'
 
   resources :creation_dates, shallow: true do
-    resources :comments
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: {
