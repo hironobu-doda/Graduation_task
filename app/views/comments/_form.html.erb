@@ -14,22 +14,22 @@
 
   <div class="field">
     <%= form.label :before_content %>
-    <%= form.text_area :before_content, size: "100x5" %>
+    <%= form.text_area :before_content, id: :comment_before_content, size: "100x5" %>
   </div>
 
   <div class="field">
     <%= form.label :before_point %>
-    <%= form.number_field :before_point %>
+    <%= form.number_field :before_point, id: :comment_before_point %>
   </div>
 
   <div class="field">
     <%= form.label :after_content %>
-    <%= form.text_area :after_content, size: "100x5" %>
+    <%= form.text_area :after_content, id: :comment_after_content, size: "100x5" %>
   </div>
 
   <div class="field">
     <%= form.label :after_point %>
-    <%= form.number_field :after_point %>
+    <%= form.number_field :after_point, id: :comment_after_point %>
   </div>
 
   <div class="field">

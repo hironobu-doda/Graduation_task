@@ -61,6 +61,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem "launchy"
   gem 'selenium-webdriver'
+  gem "poltergeist"
 end
 
 group :development do
