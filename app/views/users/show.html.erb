@@ -10,10 +10,15 @@
 
 <%= area_chart [
   { name: "ストレス軽減前", data: @chart_data_1 },
-  { name: "ストレス軽減後", data: @chart_data_2 }
-], stacked: false, colors: ["#FFFF33", "#99FFFF"], xtitle: "日付け (日)", ytitle: "ストレス度 (%)", discrete: true %>
+  { name: "ストレス軽減後", data: @chart_data_2 }],
+    stacked: false,
+    colors: ["#FFFF33", "#99FFFF"],
+    xtitle: "日付け (日)",
+    ytitle: "ストレス度 (%)",
+    discrete: true,
+    messages: {empty: "データがありません"} %>
 
-<h3>最新のストレス度</h3>
+<h3>最新のストレス軽減度</h3>
 <% if @chart_data_1.present? || @chart_data_2.present? %>
   <% if (@chart_data_1.values.last - @chart_data_2.values.last) >= 0 %>
     <%= @chart_data_1.keys.last %> : <%= @chart_data_1.values.last.floor - @chart_data_2.values.last.floor %>%減少

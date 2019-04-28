@@ -3,6 +3,9 @@
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
+        <% if comment.user.image.url %>
+          <img src=<%= comment.user.image %> class = "icon_image">
+        <% end %>
         <p><%= comment.before_content %></p>
         <p><%= comment.before_point %></p>
         <p><%= comment.after_content %></p>
