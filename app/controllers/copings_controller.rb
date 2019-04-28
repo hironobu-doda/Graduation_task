@@ -13,7 +13,8 @@ class CopingsController < ApplicationController
       if @coping.save
         format.js { render :list }
       else
-        format.html { redirect_to copings_path, notice: '投稿できませんでした...' }
+        flash[:success] = '投稿できませんでした...'
+        format.html { redirect_to copings_path }
       end
     end
   end
@@ -23,7 +24,6 @@ class CopingsController < ApplicationController
     @coping.destroy
     respond_to do |format|
       format.html { redirect_to copings_url, notice: 'コーピングを削除しました' }
-      format.json { head :no_content }
     end
   end
 

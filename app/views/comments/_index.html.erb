@@ -1,4 +1,5 @@
 <ul>
+  <%= h(flash[:success]) %>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>

@@ -5,9 +5,11 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
+        # flash.discard
         format.js { render :index }
       else
-        format.html { redirect_to creation_date_path(@creation_date), notice: '投稿できませんでした...' }
+        flash[:success] = '投稿できませんでした...'
+        format.html { redirect_to creation_date_path(@creation_date) }
       end
     end
   end
@@ -20,9 +22,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to creation_date_path(@comment.creation_date_id), notice: "編集しました" }
+        format.html { redirect_to creation_date_path(@comment.creation_date_id) }
       else
-        format.html { redirect_to creation_date_path(@comment.creation_date_id), notice: '編集できませんでした...' }
+        format.html { redirect_to creation_date_path(@comment.creation_date_id) }
       end
     end
   end

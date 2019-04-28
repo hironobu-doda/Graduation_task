@@ -23,7 +23,7 @@ class CreationDatesController < ApplicationController
 
     respond_to do |format|
       if @creation_date.save
-        format.html { redirect_to @creation_date, notice: '作成しました' }
+        format.html { redirect_to @creation_date }
       else
         format.html { render :new }
       end
@@ -34,7 +34,7 @@ class CreationDatesController < ApplicationController
     respond_to do |format|
       if @creation_date.update(creation_date_params)
         Comment.where(creation_date_id: @creation_date.id).update(creation_date_params)
-        format.html { redirect_to @creation_date, notice: '編集しました' }
+        format.html { redirect_to @creation_date }
       else
         format.html { render :edit }
       end

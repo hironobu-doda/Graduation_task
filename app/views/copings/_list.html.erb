@@ -1,4 +1,5 @@
 <ul>
+  <%= h(flash[:success]) %>
   <% unless copings.nil? %>
     <% copings.each do |coping| %>
       <% if coping.id.present? %>
