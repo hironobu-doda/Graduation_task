@@ -9,6 +9,10 @@
     </div>
   <% end %>
 
+  <% unless creation_date.errors.any? %>
+    <p><%= h(flash[:success]) %></p>
+  <% end %>
+
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date, id: :creation_date_date %>
