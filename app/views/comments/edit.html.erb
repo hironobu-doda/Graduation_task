@@ -15,22 +15,22 @@
 
     <div class="field">
       <%= form.label :before_content %>
-      <p><%= form.text_field :before_content %></p>
+      <p><%= form.text_area :before_content, size: "50x6" %></p>
     </div>
 
     <div class="field">
       <%= form.label :before_point %>
-      <p><%= form.number_field :before_point %></p>
+      <p><%= form.number_field :before_point, min: 0, max: 100 %></p>
     </div>
 
     <div class="field">
       <%= form.label :after_content %>
-      <p><%= form.text_field :after_content %></p>
+      <p><%= form.text_area :after_content, size: "50x6" %></p>
     </div>
 
     <div class="field">
       <%= form.label :after_point %>
-      <p><%= form.number_field :after_point %></p>
+      <p><%= form.number_field :after_point, min: 0, max: 100 %></p>
     </div>
 
     <div class="actions">

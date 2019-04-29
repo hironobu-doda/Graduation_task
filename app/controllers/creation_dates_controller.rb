@@ -46,7 +46,7 @@ class CreationDatesController < ApplicationController
           format.html { render :edit }
         end
       else
-        format.html { render :new }
+        format.html { render :edit }
         flash[:success] = '未来の日付は入力できません'
       end
     end

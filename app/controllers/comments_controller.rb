@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         format.html { redirect_to creation_date_path(@comment.creation_date_id) }
       else
+        error_message
         format.html { redirect_to creation_date_path(@comment.creation_date_id) }
       end
     end
