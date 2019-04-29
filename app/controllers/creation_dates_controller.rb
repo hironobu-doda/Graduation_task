@@ -37,8 +37,8 @@ class CreationDatesController < ApplicationController
 
   def update
     respond_to do |format|
-      @creation_date_sample = current_user.creation_dates.build(creation_date_params)
-      unless @creation_date_sample.date > Date.today
+      creation_date_sample = current_user.creation_dates.build(creation_date_params)
+      unless creation_date_sample.date > Date.today
         if @creation_date.update(creation_date_params)
           Comment.where(creation_date_id: @creation_date.id).update(creation_date_params)
           format.html { redirect_to @creation_date }
