@@ -8,7 +8,20 @@ class CommentsController < ApplicationController
         # flash.discard
         format.js { render :index }
       else
-        flash[:success] = '投稿できませんでした...'
+
+        if @comment.before_point.present?
+          unless @comment.before_point.between?(0, 100)
+            flash[:success] = '「現在のストレス度」は0~100の間で入力してください'
+          end
+        end
+
+        if @comment.after_point.present?
+          unless @comment.after_point.between?(0, 100)
+            flash[:success2] = '「改善後のストレス度」は0~100の間で入力してください'
+          end
+        end
+
+        flash[:success3] = '投稿できませんでした...'
         format.html { redirect_to creation_date_path(@creation_date) }
       end
     end
