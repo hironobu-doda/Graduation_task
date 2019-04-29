@@ -21,7 +21,15 @@ class CommentsController < ApplicationController
           end
         end
 
-        flash[:success3] = '投稿できませんでした...'
+        unless @comment.before_point.present? && @comment.after_point.present?
+            flash[:success3] = 'ストレス度が空です'
+        end
+
+        unless @comment.before_content.present? && @comment.after_content.present?
+            flash[:success4] = 'コメントが空です'
+        end
+
+        flash[:success5] = '投稿できませんでした...'
         format.html { redirect_to creation_date_path(@creation_date) }
       end
     end
