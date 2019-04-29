@@ -14,12 +14,12 @@
 
   <div class="field">
     <%= form.label :before_point %>：
-    <%= form.number_field :before_point, id: :comment_before_point %>%
+    <%= form.number_field :before_point, id: :comment_before_point, min: 0, max: 100 %>%
   </div>
 
   <div class="field">
     <%= form.label :after_point %>：
-    <%= form.number_field :after_point, id: :comment_after_point %>%
+    <%= form.number_field :after_point, id: :comment_after_point, min: 0, max: 100 %>%
   </div>
 
   <div class="field">

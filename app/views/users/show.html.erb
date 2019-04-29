@@ -33,12 +33,15 @@
   <% end %>
 
   <Hr>
+    <% if @random_my_true_coping.present? %>
+      <div id="comments_area">
+        <%= render partial: 'users/coping', locals: { random_my_true_coping: @random_my_true_coping } %>
+      </div>
 
-    <div id="comments_area">
-      <%= render partial: 'users/coping', locals: { random_my_true_coping: @random_my_true_coping } %>
-    </div>
-
-    <button type="button" class="btn btn-success"><%= render partial: 'users/link', locals: { user: @user } %></button>
+      <button type="button" class="btn btn-success"><%= render partial: 'users/link', locals: { user: @user } %></button>
+      <% else %>
+        <p>すぐできるコーピングが登録されていません</p>
+      <% end %>
 
   <Hr>
 </div>
