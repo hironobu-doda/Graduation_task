@@ -13,11 +13,11 @@
 
     <tbody>
       <% @creation_dates.each do |creation_date| %>
-        <tr>
-          <td><%= creation_date.date %></td>
-          <td><button type="button" class="btn btn-success"><%= link_to 'ストレス認識変更の確認', creation_date %></td>
-          <td><button type="button" class="btn btn-warning"><%= link_to '日付け変更', edit_creation_date_path(creation_date) %></td>
-          <td><button type="button" class="btn btn-danger"><%= link_to '削除', creation_date, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <tr chass="row">
+          <td class="col-md-3"><%= creation_date.date %></td>
+          <td><button type="button" class="btn btn-success btn-sm"><%= link_to 'ストレス認識変更の確認', creation_date %></td>
+          <td><button type="button" class="btn btn-warning btn-sm"><%= link_to '日付け変更', edit_creation_date_path(creation_date) %></td>
+          <td><button type="button" class="btn btn-danger btn-sm"><%= link_to '削除', creation_date, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>
       <% end %>
     </tbody>

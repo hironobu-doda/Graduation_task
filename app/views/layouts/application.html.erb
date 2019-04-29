@@ -19,20 +19,24 @@
         <%= link_to "ログイン", new_user_session_path %>
       <% end %>
     </div>
+    <!-- <div class="container text-center">
+      <%#= image_tag 'logo (1).png'%>
+    </div> -->
 
     <div class="jumbotron color">
       <div class="container text-center">
-        <h1>おちつき</h1>
+        <!-- <h1>おちつき</h1> -->
+        <%= image_tag 'logo (1).png'%>
 
       </div>
       <div class="container text-center">
         <% if user_signed_in? %>
-          <div class="row">
-            <li class="col-md-3"><%= link_to '「おちつき」の使い方', users_path %></li>
-            <li class="col-md-3"><%= link_to 'ストレス認識変更画面へ', creation_dates_path %></li>
-            <li class="col-md-3"><%= link_to 'コーピングレパートリー集へ', copings_path %></li>
-            <li class="col-md-3"><%= link_to 'マイページ', user_path(current_user.id) %></li>
-          </div>
+          <!-- <div class="row"> -->
+            <li class="col-sm-2 btn-flat-stripe"><%= link_to '「おちつき」の使い方', users_path %></li>
+            <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'ストレス認識変更画面へ', creation_dates_path %></li>
+            <li class="col-sm-3 btn-flat-stripe col-sm-offset-1"><%= link_to 'コーピングレパートリー集へ', copings_path %></li>
+            <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'マイページ', user_path(current_user.id) %></li>
+          <!-- </div> -->
         <% end %>
       </div>
     </div>
