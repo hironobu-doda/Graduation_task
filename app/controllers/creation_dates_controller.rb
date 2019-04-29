@@ -22,15 +22,21 @@ class CreationDatesController < ApplicationController
     @creation_date = current_user.creation_dates.build(creation_date_params)
 
     respond_to do |format|
-      unless @creation_date.date > Date.today
-        if @creation_date.save
-          format.html { redirect_to @creation_date }
+      if @creation_date.date == nil
+        format.html { render :new }
+        flash[:success] = '日付けが空です'
+      else
+
+        unless @creation_date.date > Date.today
+          if @creation_date.save
+            format.html { redirect_to @creation_date }
+          else
+            format.html { render :new }
+          end
         else
           format.html { render :new }
+          flash[:success] = '未来の日付は入力できません'
         end
-      else
-        format.html { render :new }
-        flash[:success] = '未来の日付は入力できません'
       end
     end
   end
@@ -38,17 +44,24 @@ class CreationDatesController < ApplicationController
   def update
     respond_to do |format|
       creation_date_sample = current_user.creation_dates.build(creation_date_params)
-      unless creation_date_sample.date > Date.today
-        if @creation_date.update(creation_date_params)
-          Comment.where(creation_date_id: @creation_date.id).update(creation_date_params)
-          format.html { redirect_to @creation_date }
+
+      if creation_date_sample.date == nil
+        format.html { render :edit }
+        flash[:success] = '日付けが空です'
+      else
+        unless creation_date_sample.date > Date.today
+          if @creation_date.update(creation_date_params)
+            Comment.where(creation_date_id: @creation_date.id).update(creation_date_params)
+            format.html { redirect_to @creation_date }
+          else
+            format.html { render :edit }
+          end
         else
           format.html { render :edit }
+          flash[:success] = '未来の日付は入力できません'
         end
-      else
-        format.html { render :edit }
-        flash[:success] = '未来の日付は入力できません'
       end
+
     end
   end
 
