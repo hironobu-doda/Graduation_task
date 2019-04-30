@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-
     @my_true_coping = current_user.copings.where(soon: true)
     @random_my_true_coping = @my_true_coping.order("random()").limit(1)
       if params[:coping_display] == "true"

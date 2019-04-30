@@ -14,7 +14,7 @@ class CopingsController < ApplicationController
         format.js { render :list }
       else
         unless @coping.coping_repertory.present?
-            flash[:success1] = 'コメントが空です'
+          flash[:success1] = 'コメントが空です'
         end
         flash[:success2] = '投稿できませんでした...'
         format.html { redirect_to copings_path }
