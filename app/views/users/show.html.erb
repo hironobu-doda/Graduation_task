@@ -1,11 +1,9 @@
 <div class="container text-center">
-    <!-- <div class="row"> -->
-      <% if current_user.try(:admin?) %>
-        <p>管理者 : <%= @user.name %>さんのページ</p>
-      <% else %>
-        <p>ユーザー : <%= @user.name %>さんのページ</p>
-      <% end %>
-    <!-- </div> -->
+  <% if current_user.try(:admin?) %>
+    <p>管理者 : <%= @user.name %>さんのページ</p>
+  <% else %>
+    <p>ユーザー : <%= @user.name %>さんのページ</p>
+  <% end %>
 
   <% if @user.image.url %>
     <img src=<%= @user.image %> class = "icon_image">
@@ -21,9 +19,9 @@
       discrete: true,
       messages: {empty: "グラフのデータがありません"} %>
 
-    <% if (@chart_data_1.length == 1) || (@chart_data_2.length == 1) %>
-      <p>折れ線グラフは2日以上の日付けとストレス度を登録しないと表示できません</p>
-    <% end %>
+  <% if (@chart_data_1.length == 1) || (@chart_data_2.length == 1) %>
+    <p>折れ線グラフは2日以上の日付けとストレス度を登録しないと表示できません</p>
+  <% end %>
 
   <Hr>
 
@@ -39,13 +37,13 @@
   <% end %>
 
   <Hr>
-    <% if @random_my_true_coping.present? %>
-      <div id="comments_area">
-        <%= render partial: 'users/coping', locals: { random_my_true_coping: @random_my_true_coping } %>
-      </div>
+  <% if @random_my_true_coping.present? %>
+    <div id="comments_area">
+      <%= render partial: 'users/coping', locals: { random_my_true_coping: @random_my_true_coping } %>
+    </div>
 
-      <button type="button" class="btn btn-success"><%= render partial: 'users/link', locals: { user: @user } %></button>
-      <% else %>
-        <p>すぐできるコーピングが登録されていません</p>
-      <% end %>
+    <button type="button" class="btn btn-success"><%= render partial: 'users/link', locals: { user: @user } %></button>
+  <% else %>
+    <p>すぐできるコーピングが登録されていません</p>
+  <% end %>
 </div>
