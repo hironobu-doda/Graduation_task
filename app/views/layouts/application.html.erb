@@ -12,44 +12,38 @@
   <body>
     <div class="wrapper">
       <header>
-          <div class="container text-left">
-            <% if user_signed_in? %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              <%= link_to 'アカウント編集', edit_user_registration_path(@user) %>
-            <% else %>
-              <%= link_to "新規登録", new_user_registration_path %> |
-              <%= link_to "ログイン", new_user_session_path %>
-            <% end %>
-          </div>
-          <!-- <div class="container text-center">
-            <%#= image_tag 'logo (1).png'%>
-          </div> -->
+        <div class="container text-left">
+          <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to 'アカウント編集', edit_user_registration_path(@user) %>
+          <% else %>
+            <%= link_to "新規登録", new_user_registration_path %> |
+            <%= link_to "ログイン", new_user_session_path %>
+          <% end %>
+        </div>
 
-          <div class="jumbotron color">
-            <div class="container text-center">
-              <%= image_tag 'logo (1).png'%>
-            </div>
-            <div class="container text-center">
-              <% if user_signed_in? %>
-                <!-- <div class="row"> -->
-                  <li class="col-sm-2 btn-flat-stripe"><%= link_to '「おちつき」の使い方', users_path %></li>
-                  <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'ストレス認識画面へ', creation_dates_path %></li>
-                  <li class="col-sm-3 btn-flat-stripe col-sm-offset-1"><%= link_to 'コーピングレパートリー集へ', copings_path %></li>
-                  <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'マイページ', user_path(current_user.id) %></li>
-                <!-- </div> -->
-              <% end %>
-            </div>
+        <div class="jumbotron color">
+          <div class="container text-center">
+            <%= image_tag 'logo (1).png'%>
           </div>
           <div class="container text-center">
-            <% if notice %>
-              <p class="alert alert-notice"><%= notice %></p>
-            <% end %>
-            <% if alert %>
-              <p class="alert alert-error"><%= alert %></p>
+            <% if user_signed_in? %>
+              <li class="col-sm-2 btn-flat-stripe"><%= link_to '「おちつき」の使い方', users_path %></li>
+              <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'ストレス認識画面へ', creation_dates_path %></li>
+              <li class="col-sm-3 btn-flat-stripe col-sm-offset-1"><%= link_to 'コーピングレパートリー集へ', copings_path %></li>
+              <li class="col-sm-2 btn-flat-stripe col-sm-offset-1"><%= link_to 'マイページ', user_path(current_user.id) %></li>
             <% end %>
           </div>
+        </div>
+        <div class="container text-center">
+          <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
+        </div>
       </header>
-
       <%= yield %>
       <footer>
         <p>©2019 心の安定サイトおちつき</P>
