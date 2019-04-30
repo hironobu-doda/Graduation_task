@@ -19,7 +19,13 @@
       xtitle: "日付け (日)",
       ytitle: "ストレス度 (%)",
       discrete: true,
-      messages: {empty: "データがありません"} %>
+      messages: {empty: "グラフのデータがありません"} %>
+
+    <% if (@chart_data_1.length == 1) || (@chart_data_2.length == 1) %>
+      <p>折れ線グラフは2日以上の日付けとストレス度を登録しないと表示できません</p>
+    <% end %>
+
+  <Hr>
 
   <h3>最新のストレス軽減度</h3>
   <% if @chart_data_1.present? || @chart_data_2.present? %>
