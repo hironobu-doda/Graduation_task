@@ -1,12 +1,8 @@
 <%= form_with(model: creation_date, local: true) do |form| %>
   <% if creation_date.errors.any? %>
-    <!-- <div id="error_explanation"> -->
-      <!-- <ul> -->
-      <% creation_date.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-      <% end %>
-      <!-- </ul> -->
-    <!-- </div> -->
+    <% creation_date.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
   <% end %>
 
   <% unless creation_date.errors.any? %>
