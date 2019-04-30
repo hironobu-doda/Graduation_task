@@ -4,8 +4,6 @@
     <h2>日付け:<%= @creation_date.date %></h2>
   </div>
 
-  <!-- <p>登録内容</p> -->
-
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, creation_date: @creation_date } %>
   </div>
