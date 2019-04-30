@@ -22,18 +22,22 @@ RSpec.feature "コメント投稿機能", type: :feature do
       fill_in '確認用パスワード', with: 'shibaodayo'
       click_on '登録する'
 
-      click_on 'ストレス認識変更画面へ'
+      click_on 'ストレス認識画面へ'
       click_on 'ストレス認識改善を行う'
+
+      # save_and_open_page
 
       # 日付け登録
       sleep 0.5
+      fill_in "creation_date_date", with: "2019/04/30"
       click_on '登録する'
 
+      save_and_open_page
       # ストレス内容とストレス度の登録
       fill_in 'ストレスの内容', with: 'テスト1-1'
-      fill_in '現在のストレス度(%)', with: '80'
+      fill_in '現在のストレス度(0~100%)', with: '80'
       fill_in 'ストレスの認識を改善した内容', with: 'テスト1-2'
-      fill_in '改善後のストレス度(%)', with: '30'
+      fill_in '改善後のストレス度(0~100%)', with: '30'
       click_on '登録する'
       find_link('削除').visible?
 
