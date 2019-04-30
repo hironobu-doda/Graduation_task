@@ -4,43 +4,51 @@
 .icon_image {
   width: 100px;
   height: 100px;
-  //サイズ指定
   border-radius: 100px;
-  //画像を丸くする
   object-fit: cover;
-  //タテヨコ比を変えないままトリミング
 }
 
-.jumbotron { background:url('wheat-3506758_1920.jpg') center no-repeat; background-size: cover;}
-.jumbotron h1{color: white;}
- .jumbotron p{color: white;}
-
-//ジャンボトロン-色の指定
- .color h1{color: #0000cd;}
- .color p{color: #0000cd;}
-
- ul {
-   margin: 0 auto;
-   padding: 10px;
-   list-style: none;
+.jumbotron {
+  background:url('wheat-3506758_1920.jpg') center no-repeat;
+  background-size: cover;
  }
 
- .row {
-   word-wrap: break-word;
+.jumbotron h1 {
+  color: white;
+}
+.jumbotron p {
+  color: white;
+}
+
+//ジャンボトロンの色の指定
+.color h1 {
+  color: #0000cd;
+ }
+.color p {
+  color: #0000cd;
  }
 
- li {
-   margin: 0 auto;
-   padding: 10px;
-   list-style: none;
- }
+ul {
+  margin: 0 auto;
+  padding: 10px;
+  list-style: none;
+}
 
- .image {
-   margin: 0 auto;
-   // display: none;
- }
+.row {
+  word-wrap: break-word;
+}
 
- .btn-flat-stripe {
+li {
+  margin: 0 auto;
+  padding: 10px;
+  list-style: none;
+}
+
+.image {
+  margin: 0 auto;
+}
+
+.btn-flat-stripe {
   position: relative;
   display: inline-block;
   font-weight: bold;
@@ -60,24 +68,23 @@
 }
 
 .wrapper{
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 120px;
-    box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
 }
 
 footer{
-    width: 100%;
-    background-color: #89c7de;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-
- position: absolute;
-    bottom: 0;
+  width: 100%;
+  background-color: #89c7de;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;
+  bottom: 0;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }

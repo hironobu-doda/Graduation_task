@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
-        # flash.discard
         format.js { render :index }
       else
         error_message
