@@ -23,7 +23,6 @@
             <%= link_to '編集', edit_comment_path(comment.id) %> |
             <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: '削除しますか？' } %>
         </div>
-
       </li>
       <Hr>
     <% end %>
