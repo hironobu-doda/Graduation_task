@@ -13,6 +13,11 @@ Rails 5.1.7
 Ruby 2.6.0
 
 ---
+## 環境構築
+以下のコマンドでphantomjsをインストールしてください。headlessでjsテストをするために必要です。
+$ brew cask install phantomjs
+
+---
 ## 機能一覧
 ---
 - ログイン機能
