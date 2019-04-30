@@ -25,14 +25,11 @@ RSpec.feature "コメント投稿機能", type: :feature do
       click_on 'ストレス認識画面へ'
       click_on 'ストレス認識改善を行う'
 
-      # save_and_open_page
-
       # 日付け登録
       sleep 0.5
       fill_in "creation_date_date", with: "2019/04/30"
       click_on '登録する'
 
-      save_and_open_page
       # ストレス内容とストレス度の登録
       fill_in 'ストレスの内容', with: 'テスト1-1'
       fill_in '現在のストレス度(0~100%)', with: '80'
